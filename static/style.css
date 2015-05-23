@@ -1,0 +1,11 @@
+.messages-container {
+  max-height: 500px;
+  border: 1px solid gray;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+.app {
+	position: absolute;
+  bottom: 0px;
+  left: 5%;
+}
