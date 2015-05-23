@@ -19,7 +19,17 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.use(function(req, res, next) {
+	res.status(404).send('404 Not Found. Sorry.');
+});
+
 // configure socket
+socket.sockets.on('connection', function(sock) {
+	sock.on('mensaje', function(message) {
+		console.log('Mensaje recibido: ', message);
+		socket.sockets.emit('mensaje', message);
+	});
+});
 
 // start listening
 server.listen(8888);
